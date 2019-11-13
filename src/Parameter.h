@@ -1,6 +1,7 @@
 #pragma once
 struct parameters
 {
+  //parameters for constructing solution in gubser coordinates
   int n_rho; //grid size for rho
   double c; // 5 eta / s constant
   double rho0; //initial gubse time
@@ -14,4 +15,13 @@ struct parameters
   int n_grid_p_eta_hat;
   double p_eta_hat_min;
   double delta_p_eta_hat;
+  //parameters for constructing solution in milne coords
+  int n_r;
+  double delta_r;
+  int n_p_mag;
+  double delta_p_mag;
+  int n_phip;
+  int n_vz;
+  double tau0;
+  double q0;
 };

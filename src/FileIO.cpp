@@ -63,6 +63,30 @@ void readInParameters(struct parameters &params)
     fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
     params.delta_p_eta_hat = dummyFloat;
 
+    fscanf(fileIn, "%s\t%d\n", dummyChar, &dummyInt);
+    params.n_r = dummyInt;
+
+    fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
+    params.delta_r = dummyFloat;
+
+    fscanf(fileIn, "%s\t%d\n", dummyChar, &dummyInt);
+    params.n_p_mag = dummyInt;
+
+    fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
+    params.delta_p_mag = dummyFloat;
+
+    fscanf(fileIn, "%s\t%d\n", dummyChar, &dummyInt);
+    params.n_phip = dummyInt;
+
+    fscanf(fileIn, "%s\t%d\n", dummyChar, &dummyInt);
+    params.n_vz = dummyInt;
+
+    fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
+    params.tau0 = dummyFloat;
+
+    fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
+    params.q0 = dummyFloat;
+
     fclose(fileIn);
   }
 }
