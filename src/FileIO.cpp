@@ -87,6 +87,9 @@ void readInParameters(struct parameters &params)
     fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
     params.q0 = dummyFloat;
 
+    fscanf(fileIn, "%s\t%f\n", dummyChar, &dummyFloat);
+    params.resolution = dummyFloat;
+
     fclose(fileIn);
   }
 }

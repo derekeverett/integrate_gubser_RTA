@@ -7,14 +7,14 @@
 
 float f_eq(float p_omega_hat, float p_eta_hat, float rho, float T_hat)
 {
-  float p_rho_hat = sqrt( (p_omega_hat*p_omega_hat / (cosh(rho)*cosh(rho))) + p_eta_hat*p_eta_hat );
+  float p_rho_hat = sqrt( (p_omega_hat*p_omega_hat / (cosh(rho)*cosh(rho)) ) + p_eta_hat*p_eta_hat );
   return exp(-p_rho_hat / T_hat);
 }
 
 float DampingFunction(float rho2, float rho1, gsl_spline *T_spline, gsl_interp_accel *acc, parameters &params)
 {
   //define an integration step size
-  float drho = params.delta_rho / 5.;
+  float drho = params.delta_rho / params.resolution;
   float c = params.c;
   float result = 0.;
   float rho = rho1;
@@ -27,9 +27,10 @@ float DampingFunction(float rho2, float rho1, gsl_spline *T_spline, gsl_interp_a
   return exp(-1.0 * result / c);
 }
 
+//NOTE THIS SOLUTION ASSUMES THE INITIAL DISTRIBUTION IS EQUIL. f0 = feq(tau_0)
 float f_solution(float rho, float p_omega_hat, float p_eta_hat, gsl_spline *T_spline, gsl_interp_accel *acc, parameters &params)
 {
-  float drho = params.delta_rho / 5.;
+  float drho = params.delta_rho / params.resolution;
   float rho0 = params.rho0;
   float T_hat0 = params.T_hat0;
 
